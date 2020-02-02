@@ -1,111 +1,165 @@
-import React, {Component} from 'react';
-import GoogleMapReact from 'google-map-react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import './App.css';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import React, { useState } from 'react';
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+import MarkerInfoWindow from './Dashboard';
+//import { DropdownMultiple, Dropdown } from 'reactjs-dropdown-component';
+// This site has 3 pages, all of which are rendered
+// dynamically in the browser (not server rendered).
+//
+// Although the page does not ever refresh, notice how
+// React Router keeps the URL up to date as you navigate
+// through the site. This preserves the browser history,
+// making sure things like the back button and bookmarks
+// work properly.
 
-const getInfoWindowString = place => `
-    <div>
-      <div style="font-size: 16px;">
-        ${place.name}
+export default function BasicExample() {
+  return (
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/request">Make a request</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/request">
+            <Request />
+          </Route>
+          <Route path="/Dashboard">
+            <MarkerInfoWindow />
+          </Route>
+        </Switch>
       </div>
-      <div style="font-size: 14px;">
-        <span style="color: grey;">
-        ${place.rating}
-        </span>
-        <span style="color: orange;">${String.fromCharCode(9733).repeat(Math.floor(place.rating))}</span><span style="color: lightgrey;">${String.fromCharCode(9733).repeat(5 - Math.floor(place.rating))}</span>
-      </div>
-      <div style="font-size: 14px; color: grey;">
-        ${place.types[0]}
-      </div>
-      <div style="font-size: 14px; color: grey;">
-        ${'$'.repeat(place.price_level)}
-      </div>
-      <div style="font-size: 14px; color: green;">
-        ${place.opening_hours.open_now ? 'Open' : 'Closed'}
-      </div>
-    </div>`;
-
-const handleApiLoaded = (map, maps, places) => {
-    const markers = [];
-    const infowindows = [];
-
-    places.forEach((place) => {
-        markers.push(new maps.Marker({
-            position: {
-                lat: place.geometry.location.lat,
-                lng: place.geometry.location.lng,
-            },
-            map,
-        }));
-
-        infowindows.push(new maps.InfoWindow({
-            content: getInfoWindowString(place),
-        }));
-    });
-};
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-class MarkerInfoWindow extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            places: [],
-        };
-    }
-
-    componentDidMount() {
-        fetch('places.json')
-            .then(response => response.json())
-            .then((data) => {
-                data.results.forEach((result) => {
-                    result.show = false; // eslint-disable-line no-param-reassign
-                });
-                this.setState({ places: data.results });
-            });
-    }
-
-    static defaultProps = {
-        center: {
-            lat: 30.592850,
-            lng: 114.305542
-        },
-        zoom: 11
-    };
-
-    renderMarker(map, maps) {
-        let marker = new maps.Marker({
-            position: { lat: 30.592850, lng: 114.305542},
-            map,
-            title: 'Hello World!'
-        });
-    }
-
-    renderMarkers(map, maps) {
-        let markers = [];
-        let i = 0;
-        for (i;i < 10; i++){
-            markers.push(new maps.Marker({
-                position: { lat: 30.592850+0.01*i, lng: 114.305542+0.01*i},
-                map,
-            }));
-        }
-    }
-
-    render() {
-        return (
-            // Important! Always set the container height explicitly
-            <div style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: 'AIzaSyB9spSr2pnx5bvTidoT9YCp2Dd7VpAH6Fw' }}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
-                    yesIWantToUseGoogleMapApiInternals
-                    onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps)}
-                >
-                </GoogleMapReact>
-            </div>
-        );
-    }
+    </Router>
+  );
 }
 
-export default MarkerInfoWindow;
+// You can think of these components as "pages"
+// in your app.
+
+function Login() {
+  return (
+    <Form className="login-form">
+      <h1>
+        {' '}
+        <span className="font-weight-bold">Saving Humanity</span>
+      </h1>
+      <h2> Hospital Login</h2>
+      <FormGroup>
+        <Label>Username</Label>
+        <Input type="email" placeholder="Username" />
+      </FormGroup>
+      <FormGroup>
+        <Label>Password</Label>
+        <Input type="password" placeholder="Password" />
+      </FormGroup>
+      <Button className="btn-lg btn-dark btn-block">Login</Button>
+      <div className="text-center">
+        <Router>
+          <Link to={'/Signup'}>Sign Up</Link>
+        </Router>
+        <span className="p-2">|</span>
+        <a href="/sign-up">Forgot Password</a>
+      </div>
+    </Form>
+  );
+}
+
+function SignUp() {
+  return (
+    <Form className="login-form">
+      <h1>
+        {' '}
+        <span className="font-weight-bold">Saving Humanity</span>
+      </h1>
+      <h2> Hospital Sign Up</h2>
+      <FormGroup>
+        <Label>Name of Hospital</Label>
+        <Input type="email" placeholder="Name" />
+      </FormGroup>
+      <FormGroup>
+        <Label>Username</Label>
+        <Input type="email" placeholder="Username" />
+      </FormGroup>
+      <FormGroup>
+        <Label>Password</Label>
+        <Input type="password" placeholder="Password" />
+      </FormGroup>
+      <FormGroup>
+        <Label>City</Label>
+        <Input type="email" placeholder="City" />
+      </FormGroup>
+      <FormGroup>
+        <Label>State</Label>
+        <Input type="email" placeholder="State" />
+      </FormGroup>
+      <FormGroup>
+        <Label>Street Address</Label>
+        <Input type="email" placeholder="Street Address" />
+      </FormGroup>
+      <FormGroup>
+        <Label>Description</Label>
+        <Input type="email" placeholder="Description" />
+      </FormGroup>
+      <FormGroup>
+        <Label>Contact</Label>
+        <Input type="email" placeholder="XXXXXX" />
+      </FormGroup>
+      <Button className="btn-lg btn-dark btn-block">Login</Button>
+      <div className="text-center"></div>
+    </Form>
+  );
+}
+
+function Request() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+
+  return (
+    <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+      <DropdownToggle caret>Emergency Level</DropdownToggle>
+      <DropdownMenu>
+        {/* <DropdownItem header>Header</DropdownItem>
+        <DropdownItem>Some Action</DropdownItem>
+        <DropdownItem disabled>Action (disabled)</DropdownItem>
+        <DropdownItem divider /> */}
+        <DropdownItem>Low</DropdownItem>
+        <DropdownItem>Medium</DropdownItem>
+        <DropdownItem>High</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+}
