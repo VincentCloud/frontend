@@ -4,22 +4,15 @@ import GoogleMapReact from "google-map-react";
 const getInfoWindowString = place => `
     <div>
       <div style="font-size: 16px;">
-        ${place.name}
+        ${place.description}
       </div>
       <div style="font-size: 14px;">
         <span style="color: grey;">
-        ${place.rating}
+           Contact: ${place.contact}
         </span>
-        <span style="color: orange;">${String.fromCharCode(9733).repeat(Math.floor(place.rating))}</span><span style="color: lightgrey;">${String.fromCharCode(9733).repeat(5 - Math.floor(place.rating))}</span>
       </div>
-      <div style="font-size: 14px; color: grey;">
-        ${place.types[0]}
-      </div>
-      <div style="font-size: 14px; color: grey;">
-        ${'$'.repeat(place.price_level)}
-      </div>
-      <div style="font-size: 14px; color: green;">
-        ${place.opening_hours.open_now ? 'Open' : 'Closed'}
+      <div style="font-size: 14px; color: grey;"">
+        Items Requested: ${place.items}.
       </div>
     </div>`;
 
@@ -63,7 +56,7 @@ class MarkerInfoWindow extends Component {
 
         // var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyB9spSr2pnx5bvTidoT9YCp2Dd7VpAH6Fw';
         // var =
-        var url = 'places2.json';
+        var url = 'Hospitals.json';
         var backendurl = 'allHospital.json';
         //get the name of the hospital with backend url, then fetch google maps api with url
 

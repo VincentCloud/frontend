@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c808f717-c1e0-4806-81fb-f8e7103bbbd0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="ProjectId" id="1XBsF2yc0qFpdgjBC1YV3qseNkf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chenz\WebstormProjects\frontend\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chenz\WebstormProjects\frontend\public" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="10" y="194" width="741" height="481" key="dock-window-1" timestamp="1580646948980">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="10" y="194" width="741" height="481" key="dock-window-1/0.0.1500.960@0.0.1500.960" timestamp="1580646948980" />
+    <state x="0" y="391" width="739" height="667" key="dock-window-2" timestamp="1580649556186">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="0" y="391" width="739" height="667" key="dock-window-2/0.0.1500.960@0.0.1500.960" timestamp="1580649556186" />
+    <state x="-6" y="0" width="761" height="965" key="dock-window-3" timestamp="1580652141767">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="-6" y="0" width="761" height="965" key="dock-window-3/0.0.1500.960@0.0.1500.960" timestamp="1580652141767" />
+    <state x="808" y="204" width="633" height="556" key="find.popup" timestamp="1580640468143">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="808" y="204" width="633" height="556" key="find.popup/0.0.1500.960@0.0.1500.960" timestamp="1580640468143" />
   </component>
 </project>
