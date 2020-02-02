@@ -10,6 +10,7 @@ import {
 } from 'reactstrap';
 import MarkerInfoWindow from './Dashboard';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+import Overview from './Overview';
 
 //import { DropdownMultiple, Dropdown } from 'reactjs-dropdown-component';
 // This site has 3 pages, all of which are rendered
@@ -36,7 +37,7 @@ export default function BasicExample() {
             <Link to="/dashboard">Dashboard</Link>
           </NavItem>
           <NavItem>
-            <Link to="/request">Make a request</Link>
+            <Link to="/Overview">Overview</Link>
           </NavItem>
         </Nav>
 
@@ -53,6 +54,9 @@ export default function BasicExample() {
           </Route>
           <Route path="/Dashboard">
             <MarkerInfoWindow />
+          </Route>
+          <Route path="/Overview">
+            <Overview />
           </Route>
         </Switch>
       </div>
@@ -101,10 +105,10 @@ function SignUp() {
       <h1 className="heading-one"> Coronatlas</h1>
       <h3 className="heading-two"> Mapping a Solution for Coronavirus</h3>
       <Form className="login-form">
-        <h1>
+        {/* <h1>
           {' '}
           <span className="font-weight-bold">Saving Humanity</span>
-        </h1>
+        </h1> */}
         <h2> Hospital Sign Up</h2>
         <FormGroup>
           <Label>Name of Hospital</Label>
