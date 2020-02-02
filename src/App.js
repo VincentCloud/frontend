@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 
 const getInfoWindowString = place => `
@@ -72,18 +72,7 @@ class MarkerInfoWindow extends Component {
         zoom: 11
     };
 
-    renderMarker(map, maps, lat, lng) {
-        let marker = new maps.Marker({
-            position: {
-                lat: {lat},
-                lng: {lng}
-            },
-            map,
-            
-        })
-    }
-
-    renderMarkers(map, maps) {
+    renderMarker(map, maps) {
         let marker = new maps.Marker({
             position: { lat: 30.592850, lng: 114.305542},
             map,
@@ -91,9 +80,18 @@ class MarkerInfoWindow extends Component {
         });
     }
 
-    render() {
-        const { places } = this.state;
+    renderMarkers(map, maps) {
+        let markers = [];
+        let i = 0;
+        for (i;i < 10; i++){
+            markers.push(new maps.Marker({
+                position: { lat: 30.592850+0.01*i, lng: 114.305542+0.01*i},
+                map,
+            }));
+        }
+    }
 
+    render() {
         return (
             // Important! Always set the container height explicitly
             <div style={{ height: '100vh', width: '100%' }}>
