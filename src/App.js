@@ -25,7 +25,7 @@ export default function BasicExample() {
   return (
     <Router>
       <div>
-        <Nav>
+        <Nav className="navbar">
           <NavItem>
             <Link to="/">Login</Link>
           </NavItem>
@@ -65,75 +65,83 @@ export default function BasicExample() {
 
 function Login() {
   return (
-    <Form className="login-form">
-      <h1>
-        {' '}
-        <span className="font-weight-bold">Saving Humanity</span>
-      </h1>
-      <h2> Hospital Login</h2>
-      <FormGroup>
-        <Label>Username</Label>
-        <Input type="email" placeholder="Username" />
-      </FormGroup>
-      <FormGroup>
-        <Label>Password</Label>
-        <Input type="password" placeholder="Password" />
-      </FormGroup>
-      <Button className="btn-lg btn-dark btn-block">Login</Button>
-      <div className="text-center">
-        <Router>
-          <Link to={'/Signup'}>Sign Up</Link>
-        </Router>
-        <span className="p-2">|</span>
-        <a href="/sign-up">Forgot Password</a>
-      </div>
-    </Form>
+    <div>
+      <h1 className="heading-one"> Coronatlas</h1>
+      <h3 className="heading-two"> Mapping a Solution for Coronavirus</h3>
+      <Form className="login-form">
+        <h1>
+          {' '}
+          <span className="font-weight-bold"></span>
+        </h1>
+        <h2> Hospital Login</h2>
+        <FormGroup>
+          <Label>Username</Label>
+          <Input type="email" placeholder="Username" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Password</Label>
+          <Input type="password" placeholder="Password" />
+        </FormGroup>
+        <Button className="btn-lg btn-dark btn-block">Login</Button>
+        <div className="text-center">
+          <Router>
+            <Link to={'/Signup'}>Sign Up</Link>
+          </Router>
+          <span className="p-2">|</span>
+          <a href="/sign-up">Forgot Password</a>
+        </div>
+      </Form>
+    </div>
   );
 }
 
 function SignUp() {
   return (
-    <Form className="login-form">
-      <h1>
-        {' '}
-        <span className="font-weight-bold">Saving Humanity</span>
-      </h1>
-      <h2> Hospital Sign Up</h2>
-      <FormGroup>
-        <Label>Name of Hospital</Label>
-        <Input type="email" placeholder="Name" />
-      </FormGroup>
-      <FormGroup>
-        <Label>Username</Label>
-        <Input type="email" placeholder="Username" />
-      </FormGroup>
-      <FormGroup>
-        <Label>Password</Label>
-        <Input type="password" placeholder="Password" />
-      </FormGroup>
-      <FormGroup>
-        <Label>City</Label>
-        <Input type="email" placeholder="City" />
-      </FormGroup>
-      <FormGroup>
-        <Label>State</Label>
-        <Input type="email" placeholder="State" />
-      </FormGroup>
-      <FormGroup>
-        <Label>Street Address</Label>
-        <Input type="email" placeholder="Street Address" />
-      </FormGroup>
-      <FormGroup>
-        <Label>Description</Label>
-        <Input type="email" placeholder="Description" />
-      </FormGroup>
-      <FormGroup>
-        <Label>Contact</Label>
-        <Input type="email" placeholder="XXXXXX" />
-      </FormGroup>
-      <Button className="btn-lg btn-dark btn-block">Login</Button>
-      <div className="text-center"></div>
-    </Form>
+    <div>
+      <h1 className="heading-one"> Coronatlas</h1>
+      <h3 className="heading-two"> Mapping a Solution for Coronavirus</h3>
+      <Form className="login-form">
+        <h1>
+          {' '}
+          <span className="font-weight-bold">Saving Humanity</span>
+        </h1>
+        <h2> Hospital Sign Up</h2>
+        <FormGroup>
+          <Label>Name of Hospital</Label>
+          <Input type="email" placeholder="Name" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Username</Label>
+          <Input type="email" placeholder="Username" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Password</Label>
+          <Input type="password" placeholder="Password" />
+        </FormGroup>
+        <FormGroup>
+          <Label>City</Label>
+          <Input type="email" placeholder="City" />
+        </FormGroup>
+        <FormGroup>
+          <Label>State</Label>
+          <Input type="email" placeholder="State" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Street Address</Label>
+          <Input type="email" placeholder="Street Address" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Description</Label>
+          <Input type="email" placeholder="Description" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Contact</Label>
+          <Input type="email" placeholder="XXXXXX" />
+        </FormGroup>
+        <Button className="btn-lg btn-dark btn-block">Login</Button>
+        <div className="text-center"></div>
+      </Form>
+    </div>
   );
 }
 
