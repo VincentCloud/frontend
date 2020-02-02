@@ -72,24 +72,35 @@ class MarkerInfoWindow extends Component {
         zoom: 11
     };
 
-    renderMarker(map, maps) {
+    renderMarker(map, maps, lat, lng) {
         let marker = new maps.Marker({
-            position: { lat: 30.592850, lng: 114.305542},
+            position: { lat: lat, lng: lng},
             map,
             title: 'Hello World!'
         });
+        return marker;
     }
 
     renderMarkers(map, maps) {
         let markers = [];
+        let infowindows = [];
+
         let i = 0;
         for (i;i < 10; i++){
-            markers.push(new maps.Marker({
-                position: { lat: 30.592850+0.01*i, lng: 114.305542+0.01*i},
-                map,
-            }));
+            markers.push(this.renderMarker(map, maps, 30.592850+0.01*i, 114.305542+0.01*i));
+            infowindows.push( new maps.InfoWindow({
+                content: `<div>Hello</div>`
+            }))
         }
+
+        markers.forEach((marker, i) => {
+            marker.addListener('click', () => {
+                infowindows[i].open(map, marker);
+            });
+        });
     }
+
+
 
     render() {
         return (
